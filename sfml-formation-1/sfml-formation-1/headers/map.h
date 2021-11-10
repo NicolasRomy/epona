@@ -13,5 +13,5 @@ public:
     sf::Texture texture2;
     sf::Vector2i size = { 16, 16 };
     sf::Vector2i emptyspace{ 6, 9 };
-    void drawmap(sf::RenderWindow &window, std::vector <sf::Sprite> map_objects, std::vector <sf::Sprite> map_background);
+    void drawmap(sf::RenderWindow &window, monde map2);
 };

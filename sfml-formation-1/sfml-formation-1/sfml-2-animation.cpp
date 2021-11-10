@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "headers/Player.h"
 #include "headers/Ennemy.h"
+#include "headers/map.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -9,7 +10,6 @@ using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
-
 /*
 Dans cet example, vous allez devoir animer un personnage lors de son déplacement.
 Toujours en utilisant Sprite::setTextureRect(), vous devrez alterner entre plusieurs sous régions de la texture fournie, à une fréquence adaptée.
@@ -29,12 +29,13 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 int main()
 {
 
-    RenderWindow window(VideoMode(500, 500), "SFML works!");
+    RenderWindow window(VideoMode(192, 128), "SFML works!");
 
     float FrameDuration = 0.3f;
     int speed = 100;
-
+    monde map2;
     Texture spritePlayer;
+
     spritePlayer.loadFromFile("characters.png");
     Player player(&spritePlayer, FrameDuration , speed, 3);
     
@@ -64,7 +65,7 @@ int main()
 
         player.Update(deltaTime);
         ennemy.Update(deltaTime);
-
+        map2.drawmap(window, map2);
 
         window.clear();
         player.Draw(window);

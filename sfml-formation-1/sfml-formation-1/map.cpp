@@ -1,5 +1,5 @@
-/*#include <SFML/Graphics.hpp>
-#include <C:\Users\nicol\source\repos\sfml\sfml-formation-1\sfml-formation-1\headers\map.h>
+#include <SFML/Graphics.hpp>
+#include "headers/map.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -8,8 +8,8 @@ using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
-monde map2;
 
+/*
 Dans cet example, vous allez devoir charger et afficher un tileset
 Vous devrez charger plusieurs sprites, de préférences dans un vector<>.
 Vous devrez utiliser la fonction Sprite::setTextureRect() qui prend un IntRect en argument.
@@ -25,7 +25,7 @@ Votre travail consiste à écrire la fonction load_level(), qui doit:
 * positionner les Sprites
 Les tiles font 16x16px, il faudra donc multiplier par 16 les offset fournis dans la map
 Il sera nécessaire de charger deux grilles de tiles, la première étant celle du sol, et l'autre des objets.
-
+*/
 
 
 
@@ -172,11 +172,11 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
 {
 
     vector <Sprite> fantastik;
+    Sprite map_objects;
 
     int y = 0;
     for (auto& str : tile)
     {
-        map2.map_objects.setTexture(map2.texture2);
         sf::Vector2i size(16, 16);
         sf::Vector2i emptyspace(6, 9);
         vector <IntRect> o;
@@ -210,9 +210,9 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
                 }
                 else
                 {
-                    map2.map_objects.setTextureRect(o[l]);
-                    map2.map_objects.setPosition(l * 16, (y * 16));
-                    fantastik.push_back(map2.map_objects);
+                    map_objects.setTextureRect(o[l]);
+                    map_objects.setPosition(l * 16, (y * 16));
+                    fantastik.push_back(map_objects);
                 }
             }
         }
@@ -221,9 +221,10 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
     return(fantastik);
 }
 
-void monde::drawmap(RenderWindow &window,vector <Sprite> map_objects, vector <Sprite> map_background)
+void monde::drawmap(RenderWindow &window, monde map2)
 {
-    map2.texture2.loadFromFile("foresttiles2-t.png");
+    map2.background = load_level(level::tile_strings_backgroung, level::aliasses, level::tile_offsets);
+    map2.forground = load_level(level::tile_strings, level::aliasses, level::tile_offsets);
     for (int i = 0; i < map2.background.size(); i++)
     {
         map2.background[i].setTexture(map2.texture2);
@@ -236,23 +237,8 @@ void monde::drawmap(RenderWindow &window,vector <Sprite> map_objects, vector <Sp
         window.draw(map2.forground[i]);
     }
 }
-int si()
-{
-    vector <Sprite> map_objects;
-    vector <Sprite> map_background;
-    map_background = load_level(level::tile_strings_backgroung, level::aliasses, level::tile_offsets);
-    map_objects = load_level(level::tile_strings, level::aliasses, level::tile_offsets);
-    sf::RenderWindow window(sf::VideoMode(192, 128), "SFML works!");
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-        map2.drawmap(&window,map_objects,map_background);
-        /*for (int i = 0; i < map_background.size(); i++)
+        /*
+        for (int i = 0; i < map_background.size(); i++)
         {
             
             map_background[i].setTexture(texture);
@@ -267,9 +253,4 @@ int si()
         
         window.display();
         window.clear();
-    }
-
-
-    return 0;
-}
-*/
+        */
