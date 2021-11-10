@@ -1,12 +1,6 @@
 ﻿  Animation.cpp
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(6,1): error C2511: 'Animation::Animation(sf::Texture *,float,int)' : impossible de trouver la fonction membre surchargée dans 'Animation'
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\headers\Animation.h(4): message : voir la déclaration de 'Animation'
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(7,2): error C2671: 'Animation::{ctor}' : les fonctions membres static n'ont pas de pointeurs 'this'
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(8,2): error C2597: référence non conforme à un membre non static 'Animation::totalTime'
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\headers\Animation.h(15): message : voir la déclaration de 'Animation::totalTime'
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(13,19): error C2065: 'row' : identificateur non déclaré
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(29,23): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(26,23): warning C4018: '>=' : incompatibilité signed/unsigned
   Player.cpp
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\Player.cpp(9,11): error C2661: 'Animation::Animation' : aucune fonction surchargée ne nécessite 3 arguments
   sfml-2-animation.cpp
   Génération de code en cours...
+  sfml-formation-1.vcxproj -> C:\Users\Eliot\Source\Repos\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe

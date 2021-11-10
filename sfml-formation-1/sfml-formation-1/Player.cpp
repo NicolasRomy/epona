@@ -5,8 +5,8 @@ void Player::Draw(sf::RenderWindow& window)
 	window.draw(body);
 }
 
-Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column) :
-	animation(texture, SwitchTime, column)
+Player::Player(sf::Texture* texture, float SwitchTime, float speed) :
+	animation(texture, SwitchTime)
 {
 	this->speed = speed;
 	row = 0;

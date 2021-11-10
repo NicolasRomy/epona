@@ -10,6 +10,8 @@ public:
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
 
+	Player(sf::Texture* texture, float SwitchTime, float speed);
+
 
 
 

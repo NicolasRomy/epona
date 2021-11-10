@@ -5,7 +5,7 @@ class Animation
 {
 
 public: 
-	Animation(sf::Texture* texture, float SwitchTime, int column, int row);
+	Animation(sf::Texture* texture, float SwitchTime);
 	void Update(int row, int column, float deltaTime, bool FaceRight);
 	sf::IntRect uvRect;
 

@@ -34,7 +34,7 @@ int main()
     Texture sprite;
     sprite.loadFromFile("characters.png");
 
-    Player player(&sprite, 0.3f, 50, 2);
+    Player player(&sprite, 0.3f, 50);
 
     float deltaTime = 0.0f;
     Clock clock;

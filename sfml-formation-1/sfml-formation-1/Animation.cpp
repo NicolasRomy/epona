@@ -2,15 +2,12 @@
 #include <iostream>
 
 
-Animation::Animation(sf::Texture* texture, float SwitchTime, int column) 
+Animation::Animation(sf::Texture* texture, float SwitchTime) 
 {
 	this->SwitchTime = SwitchTime;
 	totalTime = 0.0f;
 	uvRect.width = 16;
 	uvRect.height = 16;
-	int numberFrame = 1;
-	currentImage.x = column;
-	currentImage.y = row;
 }
 
 void Animation::Update(int row, int column, float deltaTime, bool FaceRight)
