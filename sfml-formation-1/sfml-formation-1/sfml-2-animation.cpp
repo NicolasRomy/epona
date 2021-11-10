@@ -10,6 +10,7 @@ using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
+
 /*
 Dans cet example, vous allez devoir animer un personnage lors de son déplacement.
 Toujours en utilisant Sprite::setTextureRect(), vous devrez alterner entre plusieurs sous régions de la texture fournie, à une fréquence adaptée.
@@ -29,7 +30,7 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 int main()
 {
 
-    RenderWindow window(VideoMode(192, 128), "SFML works!");
+    RenderWindow window(VideoMode(180,128), "SFML works!");
 
     float FrameDuration = 0.3f;
     int speed = 100;
@@ -38,7 +39,8 @@ int main()
 
     spritePlayer.loadFromFile("characters.png");
     Player player(&spritePlayer, FrameDuration , speed, 3);
-    
+
+    map2.texture2.loadFromFile("foresttiles2-t.png");
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
     Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9 );
@@ -62,12 +64,13 @@ int main()
                 window.close();
         }
 
-
+        
         player.Update(deltaTime);
         ennemy.Update(deltaTime);
-        map2.drawmap(window, map2);
-
+        
         window.clear();
+
+        map2.drawmap(window, map2);
         player.Draw(window);
         ennemy.Draw(window);
         window.display();

@@ -10,8 +10,8 @@ Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column) 
 	turn = false;
 	IsMoving = false;
 
-	body.setSize(sf::Vector2f(16.0f * 5, 16.0f * 5));
-	body.setPosition(400, 0);
+	body.setSize(sf::Vector2f(16.0f, 16.0f));
+	body.setPosition(30, 0);
 	body.setTexture(texture);
 }
 
@@ -21,7 +21,7 @@ void Ennemy::Update(float deltaTime)
 	sf::Vector2f position = body.getPosition();
 	std::cout << position.y << std::endl;
 
-	if (position.y < 200)
+	if (position.y < 100)
 	{
 		movement.y = speed * deltaTime;
 		row = 0;

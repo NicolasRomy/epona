@@ -27,9 +27,6 @@ Les tiles font 16x16px, il faudra donc multiplier par 16 les offset fournis dans
 Il sera nécessaire de charger deux grilles de tiles, la première étant celle du sol, et l'autre des objets.
 */
 
-
-
-
 namespace level {
     map<string, vec2i> tile_offsets = {
         { "convex_angle1", {0,0}},    //
@@ -166,8 +163,6 @@ namespace level {
     };
 }
 
-
-
 vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, map<string, vec2i> tile_offsets)
 {
 
@@ -237,6 +232,7 @@ void monde::drawmap(RenderWindow &window, monde map2)
         window.draw(map2.forground[i]);
     }
 }
+
         /*
         for (int i = 0; i < map_background.size(); i++)
         {
