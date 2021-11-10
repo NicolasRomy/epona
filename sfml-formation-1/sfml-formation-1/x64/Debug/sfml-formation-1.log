@@ -1,0 +1,4 @@
+﻿  map.cpp
+C:\Users\nicol\source\repos\sfml\sfml-formation-1\sfml-formation-1\map.cpp(214,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\nicol\source\repos\sfml\sfml-formation-1\sfml-formation-1\map.cpp(214,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\nicol\source\repos\sfml\sfml-formation-1\sfml-formation-1\map.cpp(254,22): error C2100: illegal indirection
