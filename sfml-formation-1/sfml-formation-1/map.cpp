@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+/*#include <SFML/Graphics.hpp>
 #include <C:\Users\nicol\source\repos\sfml\sfml-formation-1\sfml-formation-1\headers\map.h>
 #include <map>
 #include <iostream>
@@ -9,7 +9,7 @@ using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
 monde map2;
-/*
+
 Dans cet example, vous allez devoir charger et afficher un tileset
 Vous devrez charger plusieurs sprites, de préférences dans un vector<>.
 Vous devrez utiliser la fonction Sprite::setTextureRect() qui prend un IntRect en argument.
@@ -27,7 +27,7 @@ Les tiles font 16x16px, il faudra donc multiplier par 16 les offset fournis dans
 Il sera nécessaire de charger deux grilles de tiles, la première étant celle du sol, et l'autre des objets.
 
 
-*/
+
 
 
 namespace level {
@@ -264,7 +264,7 @@ int si()
             map_objects[i].setTexture(texture);
             window.draw(map_objects[i]);
         }
-        */
+        
         window.display();
         window.clear();
     }
@@ -272,3 +272,4 @@ int si()
 
     return 0;
 }
+*/

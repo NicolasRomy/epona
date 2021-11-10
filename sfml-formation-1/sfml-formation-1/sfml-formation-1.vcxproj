@@ -148,7 +148,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="sfml-2-animation.cpp" />
     <ClCompile Include="sfml-3-enemy.cpp" />
     <ClCompile Include="sfml-example-1.cpp">
@@ -174,7 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="headers\Animation.h" />
     <ClInclude Include="headers\map.h" />
+    <ClInclude Include="headers\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

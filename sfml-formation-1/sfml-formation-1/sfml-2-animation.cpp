@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "headers/Player.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -22,58 +23,45 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 
 // https://imgur.com/a/vVmZnXt
 
-
+*/
 
 int main()
 {
+
     RenderWindow window(VideoMode(100, 100), "SFML works!");
+
+
     Texture sprite;
-    sprite.loadFromFile("ghost.png");
-    Sprite player(sprite);
+    sprite.loadFromFile("characters.png");
 
+    Player player(&sprite, 0.3f, 50, 2);
+
+    float deltaTime = 0.0f;
     Clock clock;
-
-    // limite les FPS à 60
     window.setFramerateLimit(60);
-    float playerMovementSpeed = 100;
-    
+
+
     while (window.isOpen())
     {
+        window.setKeyRepeatEnabled(false);
+        
+        deltaTime = clock.getElapsedTime().asSeconds();
+        clock.restart();
         Event event;
+
         while (window.pollEvent(event))
         {
             if (event.type == Event::Closed)
                 window.close();
         }
-        float deltaTime = clock.restart().asSeconds();
 
-        if (Keyboard::isKeyPressed(Keyboard::Up) && player.getPosition().y > 0)
-        {
-            player.move(0.f, -playerMovementSpeed * deltaTime);
 
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::Down) && player.getPosition().y < 84)
-        {
-            player.move(0.f, playerMovementSpeed * deltaTime);
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::Left) && player.getPosition().x > 0)
-        {
-            player.move(-playerMovementSpeed * deltaTime, 0.f);
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::Right) && player.getPosition().x < 108)
-        {
-            player.move(playerMovementSpeed * deltaTime, 0.f);
-        }
-
+        player.Update(deltaTime);
 
         window.clear();
-        window.draw(player);
+        player.Draw(window);
         window.display();
     }
 
     return 0;
-
-    */
+}
