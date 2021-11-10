@@ -2,15 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 
-
 class Player
 {
 public:
 	Player(sf::Texture* texture, float SwitchTime, float speed, int column);
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
-
-	Player(sf::Texture* texture, float SwitchTime, float speed);
 
 
 
@@ -20,7 +17,8 @@ private:
 	Animation animation;
 	int row;
 	float speed;
-	bool faceRight;
+	int column;
+	bool IsMoving;
 
 };
 

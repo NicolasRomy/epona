@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "headers/Player.h"
+#include "headers/Ennemy.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -28,13 +29,18 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 int main()
 {
 
-    RenderWindow window(VideoMode(100, 100), "SFML works!");
+    RenderWindow window(VideoMode(500, 500), "SFML works!");
 
+    float FrameDuration = 0.3f;
+    int speed = 100;
 
-    Texture sprite;
-    sprite.loadFromFile("characters.png");
-
-    Player player(&sprite, 0.3f, 50);
+    Texture spritePlayer;
+    spritePlayer.loadFromFile("characters.png");
+    Player player(&spritePlayer, FrameDuration , speed, 3);
+    
+    Texture spriteEnnemy;
+    spriteEnnemy.loadFromFile("characters.png");
+    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9 );
 
     float deltaTime = 0.0f;
     Clock clock;
@@ -57,9 +63,12 @@ int main()
 
 
         player.Update(deltaTime);
+        ennemy.Update(deltaTime);
+
 
         window.clear();
         player.Draw(window);
+        ennemy.Draw(window);
         window.display();
     }
 

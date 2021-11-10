@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="sfml-2-animation.cpp" />
@@ -177,6 +178,7 @@
   <ItemGroup>
     <ClInclude Include="Entity.h" />
     <ClInclude Include="headers\Animation.h" />
+    <ClInclude Include="headers\Ennemy.h" />
     <ClInclude Include="headers\map.h" />
     <ClInclude Include="headers\Player.h" />
   </ItemGroup>
