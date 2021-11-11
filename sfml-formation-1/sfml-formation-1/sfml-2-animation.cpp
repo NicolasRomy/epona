@@ -28,22 +28,25 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 */
 
 int main()
-{
-
+{    
     RenderWindow window(VideoMode(180,128), "SFML works!");
+    sf::Vector2u scaleWindow(180*5,128* 5);
+    window.setSize(scaleWindow);
 
     float FrameDuration = 0.3f;
-    int speed = 100;
-    monde map2;
+    int speed = 50;
+
     Texture spritePlayer;
 
     spritePlayer.loadFromFile("characters.png");
     Player player(&spritePlayer, FrameDuration , speed, 3);
 
+    monde map2;
     map2.texture2.loadFromFile("foresttiles2-t.png");
+
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
-    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9 );
+    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9);
 
     float deltaTime = 0.0f;
     Clock clock;
