@@ -32,10 +32,10 @@ int main()
 
     vector<Vector2f>
         chemin = {
-        sf::Vector2f(60.f, 30.f),
-        sf::Vector2f(30.f, 30),
-        sf::Vector2f(30.f, 0.f),
-        sf::Vector2f(60.f, 0.f),
+        sf::Vector2f(20.f, 0.f),
+        sf::Vector2f(120.f, 0.f),
+        sf::Vector2f(120.f, 100.f),
+        sf::Vector2f(20.f, 100.f),
         };
 
 
