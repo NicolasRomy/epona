@@ -9,8 +9,6 @@ Animation::Animation(sf::Texture* texture, float SwitchTime )
 	uvRect.width = 16;
 	uvRect.height = 16;
 	currentImage.x = column;
-
-
 }
 
 void Animation::Update(float deltaTime, bool IsMoving, int row, int column)

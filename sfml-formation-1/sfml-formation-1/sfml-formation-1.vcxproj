@@ -160,22 +160,6 @@
     <ClCompile Include="Lifebar.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="characters.png" />
-    <Image Include="forestmock-grid.png" />
-    <Image Include="forestmock.gif" />
-    <Image Include="foresttiles.png" />
-    <Image Include="foresttiles2-t.png" />
-    <Image Include="ghost.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="DejaVuSansMono.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="forestmock-grid.pdn" />
-    <None Include="foresttiles.pdn" />
-    <None Include="Makefile" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Entity.h" />
     <ClInclude Include="headers\Animation.h" />
     <ClInclude Include="headers\Ennemy.h" />
