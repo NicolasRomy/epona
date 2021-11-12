@@ -10,9 +10,8 @@ Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column):
 	row = 0;
 	IsMoving = false;
 
-	body.setSize(sf::Vector2f(16.0f, 16.0f));
 	body.setPosition(0, 0);
-	body.setTexture(texture);
+	body.setTexture(*texture);
 }
 
 

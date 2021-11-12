@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  map.cpp
 C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -6,3 +7,9 @@ C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-
 C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(58,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
   sfml-formation-1.vcxproj -> C:\Users\nicolas\Source\Repos\NicolasRomy\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
+=======
+﻿  sfml-2-animation.cpp
+C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(53,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(60,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  sfml-formation-1.vcxproj -> C:\Users\Eliot\Source\Repos\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
+>>>>>>> 8f15e6b1da93cf703abfa0afb4640856c984cc41

@@ -38,3 +38,4 @@ void Animation::Update(float deltaTime, bool IsMoving, int row, int column)
 	uvRect.top = currentImage.y * uvRect.height;
 
 } 
+
