@@ -13,7 +13,7 @@ public:
 
 
 private:
-	sf::RectangleShape body;
+	sf::Sprite body;
 	Animation animation;
 	int row;
 	float speed;

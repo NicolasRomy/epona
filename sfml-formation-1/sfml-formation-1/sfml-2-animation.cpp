@@ -29,13 +29,15 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 
 int main()
 {    
+
     vector<Vector2f>
         chemin = {
-        sf::Vector2f(-100.f, 0.f),
-        sf::Vector2f(0.f, 100.f),
-        sf::Vector2f(100.f, 0.f),
-        sf::Vector2f(0.f, -100.f),
+        sf::Vector2f(60.f, 30.f),
+        sf::Vector2f(30.f, 30),
+        sf::Vector2f(30.f, 0.f),
+        sf::Vector2f(60.f, 0.f),
         };
+
 
 
     RenderWindow window(VideoMode(180,128), "SFML works!");

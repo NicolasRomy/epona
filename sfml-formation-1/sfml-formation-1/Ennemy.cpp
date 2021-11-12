@@ -10,13 +10,18 @@ animation(texture, SwitchTime)
 	turn = false;
 	IsMoving = false;
 
-	body.setSize(sf::Vector2f(16.0f, 16.0f));
 	body.setPosition(30, 0);
-	body.setTexture(texture);
+	body.setTexture(*texture);
 
 }
 
-
+bool Ennemy::IsArrived(sf::Vector2f path)
+{
+	float range = 1.f;
+	sf::Vector2f sizeTarget(range, range);
+	sf::FloatRect r1(path, sizeTarget);
+	return body.getGlobalBounds().intersects(r1);
+}
 
 void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
 {
@@ -26,33 +31,35 @@ void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
 
 	totalTime += deltaTime;
 
-	if (totalTime >= 1.f)
-	{
-		totalTime -= 1.f;	
-		path++;
+    movement = chemin[path] - body.getPosition();
+	normalisation = movement / sqrt(movement.x * movement.x + movement.y * movement.y);	
+
+	if (verif)
+	{		
 		IsMoving = true;
-		normalisation = chemin[path] / sqrt(chemin[path].x * chemin[path].x + chemin[path].y * chemin[path].y);
-	
-			if (path >= number - 1)
-			{
-				path = -1;
-			}
+		path++;
+		if (path >= number)
+		{
+			path = 0;
+		}
+		verif = false;
 	}
-	if (normalisation.x > 0)
+	verif = IsArrived(chemin[path]);
+
+	if (normalisation.x > 0 && normalisation.x > normalisation.y)
 		row = 2;	
-	if (normalisation.x < 0)
+	if (normalisation.x < 0 && normalisation.x < normalisation.y)
 		row = 1;	
-	if (normalisation.y > 0)
+	if (normalisation.y > 0 && normalisation.y > normalisation.x)
 		row = 0;	
-	if (normalisation.y < 0)
+	if (normalisation.y < 0 && normalisation.y < normalisation.x)
 		row = 3;
 
-	movement.x = speed * deltaTime;
 
 	animation.Update( deltaTime, IsMoving, row , column);
 	body.setTextureRect(animation.uvRect);
-	body.move(normalisation);	
-	std::cout << position.x << " || " << position.y << " || " << totalTime << std::endl;
+	body.move(normalisation);
+	std::cout << position.x << " || " << position.y << " || " << verif << std::endl;
 
 }
 
