@@ -85,6 +85,7 @@ int main()
         map2.drawmap(window, map2);
         player.Draw(window);
         ennemy.Draw(window);
+        map2.drawmap2(window, map2);
         window.display();
     }
 

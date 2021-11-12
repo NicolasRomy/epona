@@ -163,7 +163,7 @@ namespace level {
     };
 }
 
-vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, map<string, vec2i> tile_offsets)
+vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, map<string, vec2i> tile_offsets, bool isleaf)
 {
 
     vector <Sprite> fantastik;
@@ -178,22 +178,39 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
         for (int i = 0; i < str.length() / 3; i++)
         {
 
-            std::string str2 = str.substr(i * 3 , 2);
-            if (str2 != "  ")
-            {
-                auto search = aliasses.find(str2)->second;
-                auto search2 = tile_offsets.find(search)->second;
-                search2.x *= 16;
-                search2.y *= 16;
-                sf::IntRect r1(search2, size);
-                o.push_back(r1);
+            std::string str2 = str.substr(i * 3, 2);
+            if (isleaf == false) {
+                if (str2 != "  " && str2 != "R1" && str2 != "RH" && str2 != "R4" && str2 != "R3" && str2 != "R2" && str2 != "GS" && str2 != "FL")
+                {
+                    auto search = aliasses.find(str2)->second;
+                    auto search2 = tile_offsets.find(search)->second;
+                    search2.x *= 16;
+                    search2.y *= 16;
+                    sf::IntRect r1(search2, size);
+                    o.push_back(r1);
+                }
+                else
+                {
+                    sf::IntRect r2(emptyspace, size);
+                    o.push_back(r2);
+                }
             }
-            else
-            {
-                sf::IntRect r2(emptyspace, size);
-                o.push_back(r2);
+            else {
+                if (str2 != "  ")
+                {
+                    auto search = aliasses.find(str2)->second;
+                    auto search2 = tile_offsets.find(search)->second;
+                    search2.x *= 16;
+                    search2.y *= 16;
+                    sf::IntRect r1(search2, size);
+                    o.push_back(r1);
+                }
+                else
+                {
+                    sf::IntRect r2(emptyspace, size);
+                    o.push_back(r2);
+                }
             }
-
 
             for (int l = 0; l < o.size(); l++)
             {
@@ -216,37 +233,33 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
     return(fantastik);
 }
 
-void monde::drawmap(RenderWindow &window, monde map2)
+void monde::drawmap(RenderWindow& window, monde map2)
 {
-    map2.background = load_level(level::tile_strings_backgroung, level::aliasses, level::tile_offsets);
-    map2.forground = load_level(level::tile_strings, level::aliasses, level::tile_offsets);
+    bool isleaf;
+    map2.background = load_level(level::tile_strings_backgroung, level::aliasses, level::tile_offsets, isleaf = true);
+    map2.middleground = load_level(level::tile_strings, level::aliasses, level::tile_offsets, isleaf = true);
     for (int i = 0; i < map2.background.size(); i++)
     {
         map2.background[i].setTexture(map2.texture2);
         window.draw(map2.background[i]);
     }
+    for (int i = 0; i < map2.middleground.size(); i++)
+    {
+        map2.middleground[i].setTexture(map2.texture2);
+        window.draw(map2.middleground[i]);
+    }
 
+
+}
+void monde::drawmap2(RenderWindow& window, monde map2)
+{
+    bool isleaf;
+    map2.forground = load_level(level::tile_strings, level::aliasses, level::tile_offsets, isleaf = false);
     for (int i = 0; i < map2.forground.size(); i++)
     {
         map2.forground[i].setTexture(map2.texture2);
         window.draw(map2.forground[i]);
     }
+
+
 }
-
-        /*
-        for (int i = 0; i < map_background.size(); i++)
-        {
-            
-            map_background[i].setTexture(texture);
-            window.draw(map_background[i]);
-        }
-
-        for (int i = 0; i < map_objects.size(); i++)
-        {
-            map_objects[i].setTexture(texture);
-            window.draw(map_objects[i]);
-        }
-        
-        window.display();
-        window.clear();
-        */
