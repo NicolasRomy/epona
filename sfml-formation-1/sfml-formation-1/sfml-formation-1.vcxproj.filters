@@ -41,42 +41,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="characters.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="forestmock.gif">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="forestmock-grid.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="foresttiles.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="foresttiles2-t.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="ghost.png">
-      <Filter>Source Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="DejaVuSansMono.ttf">
-      <Filter>Source Files</Filter>
-    </Font>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="forestmock-grid.pdn">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="foresttiles.pdn">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="Makefile">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>

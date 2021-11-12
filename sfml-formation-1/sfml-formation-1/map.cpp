@@ -178,7 +178,7 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
         for (int i = 0; i < str.length() / 3; i++)
         {
 
-            std::string str2 = str.substr(i * 3, 2);
+            std::string str2 = str.substr(i * 3 , 2);
             if (str2 != "  ")
             {
                 auto search = aliasses.find(str2)->second;

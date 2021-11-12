@@ -29,6 +29,15 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 
 int main()
 {    
+    vector<Vector2f>
+        chemin = {
+        sf::Vector2f(-100.f, 0.f),
+        sf::Vector2f(0.f, 100.f),
+        sf::Vector2f(100.f, 0.f),
+        sf::Vector2f(0.f, -100.f),
+        };
+
+
     RenderWindow window(VideoMode(180,128), "SFML works!");
     sf::Vector2u scaleWindow(180*5,128* 5);
     window.setSize(scaleWindow);
@@ -69,7 +78,7 @@ int main()
 
         
         player.Update(deltaTime);
-        ennemy.Update(deltaTime);
+        ennemy.Update(deltaTime, chemin);
         
         window.clear();
 

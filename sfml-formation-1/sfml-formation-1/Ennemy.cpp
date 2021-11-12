@@ -1,8 +1,8 @@
 #include "headers/Ennemy.h"
 #include <iostream>
 
-Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column) :
-	animation(texture, SwitchTime)
+Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column):
+animation(texture, SwitchTime)
 {
 	this->speed = speed;
 	this->column = column;
@@ -13,39 +13,47 @@ Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column) 
 	body.setSize(sf::Vector2f(16.0f, 16.0f));
 	body.setPosition(30, 0);
 	body.setTexture(texture);
+
 }
 
-void Ennemy::Update(float deltaTime)
+
+
+void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
 {
 	sf::Vector2f movement(0.0f, 0.0f);
 	sf::Vector2f position = body.getPosition();
-	std::cout << position.y << std::endl;
+	int number = chemin.size();
 
-	if (position.y < 100)
+	totalTime += deltaTime;
+
+	if (totalTime >= 1.f)
 	{
-		movement.y = speed * deltaTime;
-		row = 0;
+		totalTime -= 1.f;	
+		path++;
 		IsMoving = true;
+		normalisation = chemin[path] / sqrt(chemin[path].x * chemin[path].x + chemin[path].y * chemin[path].y);
+	
+			if (path >= number - 1)
+			{
+				path = -1;
+			}
 	}
-	else
-		turn = true; 
+	if (normalisation.x > 0)
+		row = 2;	
+	if (normalisation.x < 0)
+		row = 1;	
+	if (normalisation.y > 0)
+		row = 0;	
+	if (normalisation.y < 0)
+		row = 3;
 
-	if 	(turn == true)
-	{
-		if (position.y > 0)
-		{
-			movement.y = -speed * deltaTime;
-			row = 3;
-			IsMoving = true;
-		}
-		else
-			turn = false;
-	}
-		
+	movement.x = speed * deltaTime;
 
 	animation.Update( deltaTime, IsMoving, row , column);
 	body.setTextureRect(animation.uvRect);
-	body.move(movement);
+	body.move(normalisation);	
+	std::cout << position.x << " || " << position.y << " || " << totalTime << std::endl;
+
 }
 
 void Ennemy::Draw(sf::RenderWindow& window)
