@@ -15,6 +15,7 @@ animation(texture, SwitchTime)
 
 }
 
+
 bool Ennemy::IsArrived(sf::Vector2f path)
 {
 	float range = 1.f;
@@ -23,7 +24,9 @@ bool Ennemy::IsArrived(sf::Vector2f path)
 	return body.getGlobalBounds().intersects(r1);
 }
 
-void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
+
+
+void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin, Player* player)
 {
 	sf::Vector2f movement(0.0f, 0.0f);
 	sf::Vector2f position = body.getPosition();
@@ -62,6 +65,10 @@ void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
 	body.setTextureRect(animation.uvRect);
 	body.move(normalisation);
 
+	player->getGlobalBound();
+	if (body.getGlobalBounds().intersects(player->getGlobalBound())) {
+		player->loseHealth(1);
+	}
 }
 
 void Ennemy::Draw(sf::RenderWindow& window)

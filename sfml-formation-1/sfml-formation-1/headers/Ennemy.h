@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
+#include "Player.h"
 #include <vector>
 
 
@@ -9,7 +10,7 @@ class Ennemy
 public:
 
 	Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column);
-	void Update(float deltaTime, std::vector<sf::Vector2f> chemin);
+	void Update(float deltaTime, std::vector<sf::Vector2f> chemin, Player* player);
 	void Draw(sf::RenderWindow& window);
 	bool IsArrived(sf::Vector2f);
 

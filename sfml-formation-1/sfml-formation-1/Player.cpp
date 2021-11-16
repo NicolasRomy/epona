@@ -1,7 +1,6 @@
 #include "headers/Player.h"
 #include <iostream>
 
-
 Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax):
 	animation(texture, SwitchTime)
 {
@@ -14,6 +13,7 @@ Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, 
 	body.setPosition(0, 0);
 	body.setTexture(*texture);
 }
+
 
 
 void Player::Update(float deltaTime)
@@ -91,7 +91,14 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 	window.draw(rectangle);
 
 
+}
 
+void Player::loseHealth(int pvLose)
+{
+	life -= pvLose;
+}
 
-
+sf::FloatRect Player::getGlobalBound()
+{
+	return body.getGlobalBounds();
 }

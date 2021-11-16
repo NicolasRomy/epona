@@ -38,8 +38,6 @@ int main()
         sf::Vector2f(20.f, 100.f),
         };
 
-
-
     RenderWindow window(VideoMode(180,128), "SFML works!");
     sf::Vector2u scaleWindow(180*5,128* 5);
     window.setSize(scaleWindow);
@@ -77,10 +75,9 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
-
         
         player.Update(deltaTime);
-        ennemy.Update(deltaTime, chemin);
+        ennemy.Update(deltaTime, chemin, &player);
         
         window.clear();
 

@@ -9,6 +9,8 @@ public:
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
 	void ShowLifebar(int nbBar, sf::RenderWindow& window);
+	void loseHealth(int pvLose);
+	sf::FloatRect getGlobalBound();
 
 private:
 	sf::Sprite body;
