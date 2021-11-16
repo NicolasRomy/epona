@@ -46,20 +46,21 @@ void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin)
 	}
 	verif = IsArrived(chemin[path]);
 
+
+
+	if (normalisation.y > 0 )
+		row = 0;	
+	if (normalisation.y < 0)
+		row = 3;	
 	if (normalisation.x > 0 && normalisation.x > normalisation.y)
 		row = 2;	
 	if (normalisation.x < 0 && normalisation.x < normalisation.y)
 		row = 1;	
-	if (normalisation.y > 0 && normalisation.y > normalisation.x)
-		row = 0;	
-	if (normalisation.y < 0 && normalisation.y < normalisation.x)
-		row = 3;
 
 
 	animation.Update( deltaTime, IsMoving, row , column);
 	body.setTextureRect(animation.uvRect);
 	body.move(normalisation);
-	std::cout << position.x << " || " << position.y << " || " << verif << std::endl;
 
 }
 
