@@ -36,9 +36,6 @@
     <ClCompile Include="Ennemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pickup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -56,11 +53,7 @@
     <ClInclude Include="headers\Ennemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Header.h">
-=======
-    <ClInclude Include="Pickup.h">
->>>>>>> 436ceba6e4ed0ded7ae04b359a730458a0c79b27
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

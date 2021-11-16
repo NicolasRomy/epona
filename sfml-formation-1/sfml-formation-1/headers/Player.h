@@ -5,10 +5,12 @@
 class Player
 {
 public:
-	Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax);
+	Player(sf::Texture* texture, float SwitchTime, float speed, int column);
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
-	void ShowLifebar(int nbBar, sf::RenderWindow& window);
+
+
+
 
 private:
 	sf::Sprite body;
@@ -17,8 +19,6 @@ private:
 	float speed;
 	int column;
 	bool IsMoving;
-	float lifeMax;
-	int life;
-	int rectToDraw;
+
 };
 
