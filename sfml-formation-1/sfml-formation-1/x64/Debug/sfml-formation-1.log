@@ -1,16 +1,1 @@
-﻿  Animation.cpp
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(26,23): warning C4018: '>=' : incompatibilité signed/unsigned
-  Ennemy.cpp
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\Ennemy.cpp(30,28): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-  map.cpp
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,56): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Player.cpp
-  sfml-2-animation.cpp
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(53,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(60,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  sfml-3-enemy.cpp
-  sfml-example-1.cpp
-  Lifebar.cpp
-  Génération de code en cours...
-  sfml-formation-1.vcxproj -> C:\Users\nromy\Source\Repos\NicolasRomy\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
+﻿  sfml-formation-1.vcxproj -> C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
