@@ -68,7 +68,7 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 	float temp = nbBar / lifeMax ;
 	float coef = life * temp;	
 	int i = 0;
-	while( coef > 1)
+	while( coef > 1 )
 	{
 		coef--;
 	
@@ -81,14 +81,13 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 		i++;
 
 	}
-
-	sf::RectangleShape rectangle;
-	rectangle.setSize(sf::Vector2f(5, - 20*coef));
-	rectangle.setFillColor(sf::Color::Red);
-	rectangle.setPosition(130 + i * 7, 25);
-	window.draw(rectangle);
-
-
+	if (coef >0) {
+		sf::RectangleShape rectangle;
+		rectangle.setSize(sf::Vector2f(5, -20 * coef));
+		rectangle.setFillColor(sf::Color::Red);
+		rectangle.setPosition(130 + i * 7, 25);
+		window.draw(rectangle);
+	}
 }
 
 void Player::loseHealth(int pvLose)
