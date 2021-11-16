@@ -6,6 +6,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include "Pickup.h"
 using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
@@ -56,6 +57,10 @@ int main()
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
     Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9);
+    
+    //Texture spritepotion;
+    //spritepotion.loadFromFile("potions.png");
+   // HealthPotion healthPotion(&spritepotion, FrameDuration,0);
 
     float deltaTime = 0.0f;
     Clock clock;
@@ -84,6 +89,7 @@ int main()
         map2.drawmap(window, map2);
         player.Draw(window);
         ennemy.Draw(window);
+       // healthPotion.Draw(window);
         map2.drawmap2(window, map2);
         player.ShowLifebar(5, window);
         window.display();
