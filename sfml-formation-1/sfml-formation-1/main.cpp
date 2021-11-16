@@ -2,6 +2,7 @@
 #include "headers/Player.h"
 #include "headers/Ennemy.h"
 #include "headers/map.h"
+#include "headers/Sword.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -63,6 +64,7 @@ int main()
     Clock clock;
     window.setFramerateLimit(60);
 
+    Sword sword;
 
     while (window.isOpen())
     {
