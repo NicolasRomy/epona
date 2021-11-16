@@ -151,6 +151,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="sfml-2-animation.cpp" />
     <ClCompile Include="sfml-3-enemy.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="headers\Ennemy.h" />
     <ClInclude Include="headers\map.h" />
     <ClInclude Include="headers\Player.h" />
+    <ClInclude Include="Pickup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -46,11 +46,11 @@ int main()
 
     float FrameDuration = 0.3f;
     int speed = 50;
+    int lifePlayer = 100;
 
     Texture spritePlayer;
-
     spritePlayer.loadFromFile("characters.png");
-    Player player(&spritePlayer, FrameDuration , speed, 3);
+    Player player(&spritePlayer, FrameDuration , speed, 3, lifePlayer);
 
     monde map2;
     map2.texture2.loadFromFile("foresttiles2-t.png");
@@ -88,6 +88,7 @@ int main()
         player.Draw(window);
         ennemy.Draw(window);
         map2.drawmap2(window, map2);
+        player.ShowLifebar(5, window);
         window.display();
     }
 
