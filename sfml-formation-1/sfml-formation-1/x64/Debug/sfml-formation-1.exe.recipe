@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\ecros\Desktop\repo\sfml-formation-1\x64\Debug\sfml-formation-1.exe</FullPath>
+=======
+      <FullPath>C:\Users\nromy\Source\Repos\NicolasRomy\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe</FullPath>
+>>>>>>> bf349e71fcee5b4afda47b64467a40e488869223
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
