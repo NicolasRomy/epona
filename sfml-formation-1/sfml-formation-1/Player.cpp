@@ -88,6 +88,19 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 		rectangle.setPosition(130 + i * 7, 25);
 		window.draw(rectangle);
 	}
+	else {
+		sf::Texture gameover;
+		sf::Sprite  gameover_sprite;
+		gameover.loadFromFile("gameover.jpg");
+		gameover_sprite.setTexture(gameover);
+		gameover_sprite.setTextureRect(sf::IntRect({ 0, 0 }, { 180,128 }));
+		gameover_sprite.setPosition(0, 0);
+		window.draw(gameover_sprite);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		{
+			exit(0);
+		}
+	}
 }
 
 void Player::loseHealth(int pvLose)
