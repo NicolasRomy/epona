@@ -1,15 +1,16 @@
-<<<<<<< HEAD
-﻿  map.cpp
-C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Animation.cpp
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\Animation.cpp(26,23): warning C4018: '>=' : incompatibilité signed/unsigned
+  Ennemy.cpp
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\Ennemy.cpp(30,28): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  map.cpp
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,56): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\map.cpp(226,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Player.cpp
   sfml-2-animation.cpp
-C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(51,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\nicolas\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(58,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  sfml-formation-1.vcxproj -> C:\Users\nicolas\Source\Repos\NicolasRomy\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
-=======
-﻿  sfml-2-animation.cpp
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(53,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Eliot\source\repos\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(60,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  sfml-formation-1.vcxproj -> C:\Users\Eliot\Source\Repos\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
->>>>>>> 8f15e6b1da93cf703abfa0afb4640856c984cc41
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(53,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\nromy\source\repos\NicolasRomy\epona\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(60,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  sfml-3-enemy.cpp
+  sfml-example-1.cpp
+  Lifebar.cpp
+  Génération de code en cours...
+  sfml-formation-1.vcxproj -> C:\Users\nromy\Source\Repos\NicolasRomy\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
