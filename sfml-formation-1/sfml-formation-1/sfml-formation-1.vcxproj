@@ -152,13 +152,15 @@
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="4.cpp" />
+    <ClCompile Include="sfml-2-animation.cpp" />
+    <ClCompile Include="sfml-3-enemy.cpp" />
+    <ClCompile Include="sfml-example-1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Lifebar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="headers\Animation.h" />
     <ClInclude Include="headers\Ennemy.h" />
     <ClInclude Include="headers\map.h" />
