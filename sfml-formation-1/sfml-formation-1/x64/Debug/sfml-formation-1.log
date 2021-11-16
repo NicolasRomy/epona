@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  sfml-formation-1.vcxproj -> C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
 =======
+=======
+>>>>>>> c6d5e9f915b9eca889e1df71c579a6b44edca410
 ﻿  sfml-2-animation.cpp
 C:\Users\ecros\source\repos\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(52,60): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
 C:\Users\ecros\source\repos\sfml-formation-1\sfml-formation-1\sfml-2-animation.cpp(52,50): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
