@@ -80,8 +80,6 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 
 		i++;
 
-		std::cout <<coef<< std::endl;
-
 	}
 
 	sf::RectangleShape rectangle;

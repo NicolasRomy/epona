@@ -153,12 +153,8 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="sfml-2-animation.cpp" />
-    <ClCompile Include="sfml-3-enemy.cpp" />
-    <ClCompile Include="sfml-example-1.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Lifebar.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="sword.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
@@ -166,6 +162,7 @@
     <ClInclude Include="headers\Ennemy.h" />
     <ClInclude Include="headers\map.h" />
     <ClInclude Include="headers\Player.h" />
+    <ClInclude Include="headers\Sword.h" />
     <ClInclude Include="Pickup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
