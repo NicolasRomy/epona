@@ -2,6 +2,7 @@
 #include "headers/Player.h"
 #include "headers/Ennemy.h"
 #include "headers/map.h"
+#include "headers/Pickup.h"
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -46,16 +47,26 @@ int main()
     int speed = 50;
     int lifePlayer = 100;
 
+    int spritePersoX = 16;
+    int spritePersoY = 16;
+
+    int spritePotionX = 10;
+    int spritepotionY = 10;
+
     Texture spritePlayer;
     spritePlayer.loadFromFile("characters.png");
-    Player player(&spritePlayer, FrameDuration , speed, 3, lifePlayer);
+    Player player(&spritePlayer, FrameDuration , speed, 3, lifePlayer, spritePersoX, spritePersoY);
 
     monde map2;
     map2.texture2.loadFromFile("foresttiles2-t.png");
 
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
-    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9);
+    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9, spritePersoX, spritePersoY);
+
+    Texture spritePotion;
+    spritePotion.loadFromFile("potions.png");
+    HealthPotion potion(&spritePotion, FrameDuration - 0.1 , 0, spritePotionX, spritepotionY);
 
     float deltaTime = 0.0f;
     Clock clock;
@@ -77,6 +88,7 @@ int main()
         }
         
         player.Update(deltaTime);
+        potion.Update(deltaTime, &player);
         ennemy.Update(deltaTime, chemin, &player);
         
         window.clear();
@@ -84,6 +96,7 @@ int main()
         map2.drawmap(window, map2);
         player.Draw(window);
         ennemy.Draw(window);
+        potion.Draw(window);
         map2.drawmap2(window, map2);
         player.ShowLifebar(5, window);
         window.display();

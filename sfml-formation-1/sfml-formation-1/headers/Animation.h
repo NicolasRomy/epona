@@ -5,7 +5,7 @@ class Animation
 {
 
 public: 
-	Animation(sf::Texture* texture, float SwitchTime);
+	Animation(sf::Texture* texture, float SwitchTime, int uvRectW, int uvRectH);
 	void Update(float deltaTime, bool IsMoving, int row, int column);
 	sf::IntRect uvRect;
 
@@ -14,5 +14,7 @@ private:
 	int column;
 	float totalTime;
 	float SwitchTime;
+	int uvRectW;
+	int uvRectH;
 };
 

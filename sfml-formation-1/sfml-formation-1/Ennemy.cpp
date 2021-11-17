@@ -1,8 +1,8 @@
 #include "headers/Ennemy.h"
 #include <iostream>
 
-Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column):
-animation(texture, SwitchTime)
+Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column, int uvRectW, int uvRectH):
+	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
 	this->speed = speed;
 	this->column = column;

@@ -2,12 +2,14 @@
 #include <iostream>
 
 
-Animation::Animation(sf::Texture* texture, float SwitchTime )
+Animation::Animation(sf::Texture* texture, float SwitchTime, int uvRectW, int uvRectH )
 {
 	this->SwitchTime = SwitchTime;
+	this->uvRectW = uvRectW;
+	this->uvRectH = uvRectH;
 	totalTime = 0.0f;
-	uvRect.width = 16;
-	uvRect.height = 16;
+	uvRect.width = uvRectW;
+	uvRect.height = uvRectH;
 	currentImage.x = column;
 }
 
