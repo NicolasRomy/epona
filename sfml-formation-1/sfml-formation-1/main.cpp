@@ -27,6 +27,15 @@ En exercice supplémentaire, vous pouvez faire tourner une épée en demi cercle au
 // https://imgur.com/a/vVmZnXt
 
 */
+const int View_height = 180.0f;
+const int View_Weight = 128.0f;
+
+void ResizeView(RenderWindow& window, View& view)
+{
+    float Ratio = float(window.getSize().x)/ float(window.getSize().y);
+
+    view.setSize(View_height * Ratio, View_height);
+}
 
 int main()
 {    
@@ -39,10 +48,12 @@ int main()
         sf::Vector2f(20.f, 100.f),
         };
 
-    RenderWindow window(VideoMode(180,128), "SFML works!");
-    sf::Vector2u scaleWindow(180*5,128* 5);
-    window.setSize(scaleWindow);
+    RenderWindow window(VideoMode(View_height * 5, View_Weight * 5), "SFML works!");
+    sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(View_height, View_Weight));
 
+
+
+    
     float FrameDuration = 0.3f;
     int speed = 50;
     int lifePlayer = 100;
@@ -73,6 +84,8 @@ int main()
     window.setFramerateLimit(60);
 
 
+
+
     while (window.isOpen())
     {
         window.setKeyRepeatEnabled(false);
@@ -83,14 +96,26 @@ int main()
 
         while (window.pollEvent(event))
         {
-            if (event.type == Event::Closed)
-                window.close();
+            switch (event.type) 
+            {
+            case Event::Closed:
+                 window.close(); 
+                 break;            
+            
+            case Event::Resized:
+                 ResizeView(window, view);
+                 break;
+            }
+            
         }
-        
+
+        window.setView(view);    
+        view.setCenter(player.getPosition());
+
         player.Update(deltaTime);
         potion.Update(deltaTime, &player);
         ennemy.Update(deltaTime, chemin, &player);
-        
+
         window.clear();
 
         map2.drawmap(window, map2);

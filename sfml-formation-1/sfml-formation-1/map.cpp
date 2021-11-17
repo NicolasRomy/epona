@@ -28,6 +28,26 @@ Il sera nécessaire de charger deux grilles de tiles, la première étant celle du 
 */
 
 namespace level {
+    vector<string> tile_strings_backgroung = {
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    "GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD GD ",
+    };
     map<string, vec2i> tile_offsets = {
         { "convex_angle1", {0,0}},    //
         { "convex_angle2", {1,0}},    //
@@ -140,26 +160,25 @@ namespace level {
         { "--", "nothing" },
 
     };
-    vector<string> tile_strings_backgroung = {
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-        "GD GD GD GD GD GD GD GD GD GD GD GD ",
-    };
-
     vector<string> tile_strings = {
-    "   GS GS                FW FC A2 -- ",
-    "      GS GS       tt    F7 FS S2 -- ",
-    "                  tb    tt    FW FC ",
-    "   T1 T2    FL          tm    F7 FS ",
-    "   T3 T4          GS    tb    F1 FN ",
-    "                     F1 FN FN A4 -- ",
-    "      R1 R2    F1 FN A4 -- -- -- -- ",
-    "R1 RH R4 R3 R2 FW -- -- -- -- -- -- ",
+    "   GS GS FL             FW FC A2 -- -- -- --                            ",
+    "      GS GS             F7 FS S2 -- -- --                      R1 RH RH ",
+    "   FL GS          tt          FW FC FC FC                   R1 R4       ",
+    "   GS    GS       tb    tt    F7 FS FS FS    T1 T2    tt R1 R4          ",
+    "FL T1 T2 GS FL          tm                   T3 T4    tb RV             ",
+    "GS T3 T4          GS    tb    F1 FN FN F2          tt    RV             ",
+    "d2 GS FL GS GS       F1 FN FN A4 -- -- A3 F2       tb    RV       T1 T2 ",
+    "GS FL GS GS    F1 FN A4 -- -- -- -- -- -- A3 F2          R3 RH R2 T3 T4 ",
+    "d1 GS T1 T2    FW A2 -- -- -- -- -- -- -- -- FE                RV       ",
+    "GS GS T3 T4    F7 S2 -- -- -- -- -- -- A1 FC S1                RV       ",
+    "FL    GS GS       S2 A2 -- -- -- -- -- S1 FS F4                RV       ",
+    "T1 T2 GS FL d2    F7 S2 -- -- -- -- A1 FE d2       R1 RH RH RH R4       ",
+    "T3 T4    GS          FW FC FC FC FC S1 F4          RV                   ",
+    "         GS          F7 FS FS FS FS F4             RV                   ",
+    "   FL       GS                                     RV       d2          ",
+    "GS    GS                T1 T2             R1 RH RH R4                   ",
+    "            FL          T3 T4    R1 RH RH R4 d2                         ",
+    "GS    d1                         RV                                     ",
     };
 }
 

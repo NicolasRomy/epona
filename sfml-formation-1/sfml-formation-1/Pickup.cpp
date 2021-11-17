@@ -16,10 +16,12 @@ void HealthPotion::Update(float deltaTime, Player* player)
 	body.setTextureRect(animation.uvRect);
 
 	player->getGlobalBound();
-	if (body.getGlobalBounds().intersects(player->getGlobalBound())) {
+	
+	if (body.getGlobalBounds().intersects(player->getGlobalBound())) 
+	{
+		std::cout << "ok" << std::endl;
 		player->maxHealth();
 		body.setPosition(-50, -50);
-
 	}
 
 }

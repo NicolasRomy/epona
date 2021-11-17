@@ -12,6 +12,7 @@ public:
 	void loseHealth(int pvLose);
 	void maxHealth();
 	sf::FloatRect getGlobalBound();
+	sf::Vector2f getPosition() { return body.getPosition(); };
 
 private:
 	sf::Sprite body;
@@ -23,5 +24,6 @@ private:
 	float lifeMax;
 	int life;
 	int rectToDraw;
+	sf::Vector2f normalisation;
 };
 

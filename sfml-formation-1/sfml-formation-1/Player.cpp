@@ -10,7 +10,7 @@ Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, 
 	row = 0;
 	IsMoving = false;
 	life = lifeMax;
-	body.setPosition(0, 0);
+	body.setPosition(8, 8);
 	body.setTexture(*texture);
 }
 
@@ -22,29 +22,30 @@ void Player::Update(float deltaTime)
 	IsMoving = false;
 
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& body.getPosition().y > 0)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& body.getPosition().y > -100)
 	{
 		movement.y += -speed * deltaTime;
 		row = 3;
 	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && body.getPosition().y < 112)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && body.getPosition().y < 500)
 	{
 		movement.y += speed * deltaTime;
 		row = 0;
 	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && body.getPosition().x > 0)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && body.getPosition().x > -100)
 	{
 		movement.x += -speed * deltaTime;
 		row = 1;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && body.getPosition().x < 164)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && body.getPosition().x < 500)
 	{
 		movement.x += speed * deltaTime;
 		row = 2;
 	}
+		normalisation = movement / sqrt(movement.x * movement.x + movement.y * movement.y);	
 
 	if (movement.x != 0 || movement.y != 0)
 		IsMoving = true;
@@ -75,7 +76,7 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 		sf::RectangleShape rectangle;
 		rectangle.setSize(sf::Vector2f(5, 20));
 		rectangle.setFillColor(sf::Color::Red);
-		rectangle.setPosition(130 + i * 7, 5);
+		rectangle.setPosition(body.getPosition().x + 50 + i * 7, body.getPosition().y + -60);
 		window.draw(rectangle);
 
 		i++;
@@ -85,7 +86,7 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 		sf::RectangleShape rectangle;
 		rectangle.setSize(sf::Vector2f(5, -20 * coef));
 		rectangle.setFillColor(sf::Color::Red);
-		rectangle.setPosition(130 + i * 7, 25);
+		rectangle.setPosition(body.getPosition().x + 50 + i * 7, body.getPosition().y + -40);
 		window.draw(rectangle);
 	}
 	else {
@@ -117,3 +118,5 @@ sf::FloatRect Player::getGlobalBound()
 {
 	return body.getGlobalBounds();
 }
+
+
