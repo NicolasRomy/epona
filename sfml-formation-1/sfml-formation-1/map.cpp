@@ -199,7 +199,7 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
 
             std::string str2 = str.substr(i * 3, 2);
             if (isleaf == false) {
-                if (str2 != "  " && str2 != "R1" && str2 != "RH" && str2 != "R4" && str2 != "R3" && str2 != "R2" && str2 != "GS" && str2 != "FL")
+                if (str2 != "  " && str2 != "R1" && str2 != "RH" && str2 != "R4" && str2 != "R3" && str2 != "R2" && str2 != "GS" && str2 != "FL" && str2 != "RV")
                 {
                     auto search = aliasses.find(str2)->second;
                     auto search2 = tile_offsets.find(search)->second;
