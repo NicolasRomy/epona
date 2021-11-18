@@ -1,12 +1,15 @@
 #include "headers/Player.h"
 #include <iostream>
 
-Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, int uvRectW, int uvRectH ):
+Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, int uvRectW, int uvRectH, float viewheight, float viewweight, float ratio):
 	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
 	this->speed = speed;
 	this->column = column;
 	this->lifeMax = lifeMax;
+	this->viewheight = viewheight;
+	this->viewweight = viewweight;
+	this->ratio = ratio;
 	row = 0;
 	IsMoving = false;
 	life = lifeMax;
@@ -55,6 +58,7 @@ void Player::Update(float deltaTime)
 
  	animation.Update(deltaTime, IsMoving, row, column);
 	body.setTextureRect(animation.uvRect);
+	if (isAlive == true)
 	body.move(movement);
 }
 
@@ -94,9 +98,12 @@ void Player::ShowLifebar(int nbBar, sf::RenderWindow& window)
 		sf::Sprite  gameover_sprite;
 		gameover.loadFromFile("gameover.jpg");
 		gameover_sprite.setTexture(gameover);
-		gameover_sprite.setTextureRect(sf::IntRect({ 0, 0 }, { 180,128 }));
-		gameover_sprite.setPosition(0, 0);
+		gameover_sprite.setTextureRect(sf::IntRect({ 0, 0 }, { 260 ,128 }));
+		gameover_sprite.setPosition(body.getPosition().x - 260/2*ratio, body.getPosition().y - 128 / 2* ratio);
+		gameover_sprite.setScale(ratio, ratio);
 		window.draw(gameover_sprite);
+		isAlive = false;
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 		{
 			exit(0);

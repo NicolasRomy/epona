@@ -39,19 +39,20 @@ void ResizeView(RenderWindow& window, View& view)
 
 int main()
 {    
-
     vector<Vector2f>
         chemin = {
         sf::Vector2f(20.f, 0.f),
         sf::Vector2f(120.f, 0.f),
         sf::Vector2f(120.f, 100.f),
-        sf::Vector2f(20.f, 100.f),
+
         };
 
-    RenderWindow window(VideoMode(View_height * 5, View_Weight * 5), "SFML works!");
+    RenderWindow window(VideoMode(16 * 50, 9 * 50), "SFML works!");
+
     sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(View_height, View_Weight));
 
 
+    float Ratio = float(window.getSize().x) / float(window.getSize().y);
 
     
     float FrameDuration = 0.3f;
@@ -66,14 +67,14 @@ int main()
 
     Texture spritePlayer;
     spritePlayer.loadFromFile("characters.png");
-    Player player(&spritePlayer, FrameDuration , speed, 3, lifePlayer, spritePersoX, spritePersoY);
+    Player player(&spritePlayer, FrameDuration , speed, 3, lifePlayer, spritePersoX, spritePersoY, View_height, View_Weight, Ratio);
 
     monde map2;
     map2.texture2.loadFromFile("foresttiles2-t.png");
 
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
-    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9, spritePersoX, spritePersoY);
+    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9, spritePersoX, spritePersoY, chemin);
 
     Texture spritePotion;
     spritePotion.loadFromFile("potions.png");
@@ -114,7 +115,7 @@ int main()
 
         player.Update(deltaTime);
         potion.Update(deltaTime, &player);
-        ennemy.Update(deltaTime, chemin, &player);
+        ennemy.Update(deltaTime, &player);
 
         window.clear();
 

@@ -1,16 +1,17 @@
 #include "headers/Ennemy.h"
 #include <iostream>
 
-Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column, int uvRectW, int uvRectH):
+Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column, int uvRectW, int uvRectH, std::vector<sf::Vector2f> chemin):
 	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
 	this->speed = speed;
 	this->column = column;
+	this->chemin = chemin;
 	row = 0;
 	turn = false;
 	IsMoving = false;
 
-	body.setPosition(30, 0);
+	body.setPosition(chemin.back().x, chemin.back().y);
 	body.setTexture(*texture);
 
 }
@@ -26,7 +27,7 @@ bool Ennemy::IsArrived(sf::Vector2f path)
 
 
 
-void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin, Player* player)
+void Ennemy::Update(float deltaTime, Player* player)
 {
 	sf::Vector2f movement(0.0f, 0.0f);
 	sf::Vector2f position = body.getPosition();

@@ -161,24 +161,24 @@ namespace level {
 
     };
     vector<string> tile_strings = {
-    "   GS GS FL             FW FC A2 -- -- -- --                            ",
-    "      GS GS             F7 FS S2 -- -- --                      R1 RH RH ",
-    "   FL GS          tt          FW FC FC FC                   R1 R4       ",
-    "   GS    GS       tb    tt    F7 FS FS FS    T1 T2    tt R1 R4          ",
-    "FL T1 T2 GS FL          tm                   T3 T4    tb RV             ",
-    "GS T3 T4          GS    tb    F1 FN FN F2          tt    RV             ",
-    "d2 GS FL GS GS       F1 FN FN A4 -- -- A3 F2       tb    RV       T1 T2 ",
+    "   GS GS FL             FW FC A2 -- -- -- -- S1 F4                      ",
+    "      GS GS             F7 FS S2 -- -- -- A1 FE                R1 RH RH ",
+    "   FL GS          tt          FW FC FC FC S1 F4             R1 R4       ",
+    "   GS    GS       tb    tt    F7 FS FS FS F4 T1 T2    tt R1 R4          ",
+    "FL T1 T2 GS FL          tm                   T3 T4    tb RV    FL       ",
+    "GS T3 T4          GS    tb    F1 FN FN F2          tt    RV FL          ",
+    "d2 GS FL GS GS       F1 FN FN A4 -- -- A3 F2       tb    RV    FL T1 T2 ",
     "GS FL GS GS    F1 FN A4 -- -- -- -- -- -- A3 F2          R3 RH R2 T3 T4 ",
-    "d1 GS T1 T2    FW A2 -- -- -- -- -- -- -- -- FE                RV       ",
-    "GS GS T3 T4    F7 S2 -- -- -- -- -- -- A1 FC S1                RV       ",
-    "FL    GS GS       S2 A2 -- -- -- -- -- S1 FS F4                RV       ",
-    "T1 T2 GS FL d2    F7 S2 -- -- -- -- A1 FE d2       R1 RH RH RH R4       ",
-    "T3 T4    GS          FW FC FC FC FC S1 F4          RV                   ",
-    "         GS          F7 FS FS FS FS F4             RV                   ",
-    "   FL       GS                                     RV       d2          ",
-    "GS    GS                T1 T2             R1 RH RH R4                   ",
-    "            FL          T3 T4    R1 RH RH R4 d2                         ",
-    "GS    d1                         RV                                     ",
+    "d1 GS T1 T2    FW A2 -- -- -- -- -- -- -- -- FE       GS       RV    GS ",
+    "GS GS T3 T4    F7 S2 -- -- -- -- -- -- A1 FC S1             FL RV       ",
+    "FL    GS GS       S2 A2 -- -- -- -- -- S1 FS F4       FL       RV FL d1 ",
+    "T1 T2 GS FL d2    F7 S2 -- -- -- -- A1 FE d2    tt R1 RH RH RH R4       ",
+    "T3 T4    GS          FW FC FC FC FC S1 F4       tm RV FL FL FL          ",
+    "         GS          F7 FS FS FS FS F4          tm RV    FL       GS GS ",
+    "   FL       GS                   GS             tb RV       d2    d1    ",
+    "GS    GS             GS T1 T2       GS    R1 RH RH R4          GS GS    ",
+    "            FL       GS T3 T4    R1 RH RH R4 d2       GS                ",
+    "GS    d1                   GS    RV                                     ",
     };
 }
 
@@ -199,7 +199,7 @@ vector <Sprite>  load_level(vector<string> tile, map<string, string> aliasses, m
 
             std::string str2 = str.substr(i * 3, 2);
             if (isleaf == false) {
-                if (str2 != "  " && str2 != "R1" && str2 != "RH" && str2 != "R4" && str2 != "R3" && str2 != "R2" && str2 != "GS" && str2 != "FL")
+                if (str2 != "  " && str2 != "R1" && str2 != "RH" && str2 != "RV" && str2 != "R4" && str2 != "R3" && str2 != "R2" && str2 != "GS" && str2 != "FL")
                 {
                     auto search = aliasses.find(str2)->second;
                     auto search2 = tile_offsets.find(search)->second;

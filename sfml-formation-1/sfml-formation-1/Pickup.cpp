@@ -21,7 +21,7 @@ void HealthPotion::Update(float deltaTime, Player* player)
 	{
 		std::cout << "ok" << std::endl;
 		player->maxHealth();
-		body.setPosition(-50, -50);
+		body.setPosition(-500, -500);
 	}
 
 }

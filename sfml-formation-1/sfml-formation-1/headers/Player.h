@@ -5,7 +5,7 @@
 class Player
 {
 public:
-	Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, int uvRectW, int uvRectH);
+	Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, int uvRectW, int uvRectH, float viewheight, float viewweight, float ratio);
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
 	void ShowLifebar(int nbBar, sf::RenderWindow& window);
@@ -25,5 +25,9 @@ private:
 	int life;
 	int rectToDraw;
 	sf::Vector2f normalisation;
+	float viewheight;
+	float viewweight;
+	bool isAlive = true;
+	float ratio;
 };
 
