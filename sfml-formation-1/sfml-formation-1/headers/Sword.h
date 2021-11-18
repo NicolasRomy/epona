@@ -1,26 +1,21 @@
-#pragma once
 #include <SFML/Graphics.hpp>
-#include "Animation.h"
-
-class sword
-{
+#include "Ennemy.h"
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#pragma once
+class Sword {
 public:
-	sword(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, Player player);
-	void Update(float deltaTime,Player player);
-	void Draw(sf::RenderWindow& window);
-	void ShowLifebar(int nbBar, sf::RenderWindow& window);
-	void loseHealth(int pvLose);
-	sf::FloatRect getGlobalBound();
-
-private:
-	sf::Sprite body;
-	Animation animation;
-	int row;
-	float speed;
-	int column;
-	bool IsMoving;
-	float lifeMax;
-	int life;
-	int rectToDraw;
+	int samarche;
+	sf::RectangleShape body;
+	sf::Texture texture;
+	sf::Sprite sword;
+	bool swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enemy);
+	void swordPlayer(Player* player, sf::RenderWindow& window);
+	sf::Clock clockAttack;
+	float as = 0.3f;
+	float angle = 0.f;
+	int dmg = 15;
+	sf::Vector2f position = { 0.f, 0.f };
 };
-

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "headers/Player.h"
+#include "headers/Sword.h"
 #include "headers/Ennemy.h"
 #include "headers/map.h"
 #include "headers/Pickup.h"
@@ -58,10 +59,10 @@ int main()
     float FrameDuration = 0.3f;
     int speed = 50;
     int lifePlayer = 100;
-
+    int lifeEnnemy = 50;
     int spritePersoX = 16;
     int spritePersoY = 16;
-
+    bool isdead = false;
     int spritePotionX = 10;
     int spritepotionY = 10;
 
@@ -83,6 +84,9 @@ int main()
     float deltaTime = 0.0f;
     Clock clock;
     window.setFramerateLimit(60);
+
+    Sword sword;
+    sword.texture.loadFromFile("sword.png");
 
 
 
@@ -115,17 +119,37 @@ int main()
 
         player.Update(deltaTime);
         potion.Update(deltaTime, &player);
-        ennemy.Update(deltaTime, &player);
+       
 
         window.clear();
 
         map2.drawmap(window, map2);
-        player.Draw(window);
-        ennemy.Draw(window);
+         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+        {
+            sword.swordPlayer(&player, window);
+        }     
+        
         potion.Draw(window);
+        
+        if (player.Isattacking == true) {
+
+            window.draw(sword.body);
+        }
+
+        sword.swordMovement(&player, window, &ennemy);
+        
+        player.Draw(window);
+        if (ennemy.isdead == false) {
+            ennemy.Update(deltaTime, chemin, &player);
+            ennemy.Draw(window);
+
+        }
+       
+        
         map2.drawmap2(window, map2);
         player.ShowLifebar(5, window);
         window.display();
+        
     }
 
     return 0;

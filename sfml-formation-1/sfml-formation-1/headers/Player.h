@@ -12,6 +12,8 @@ public:
 	void loseHealth(int pvLose);
 	void maxHealth();
 	sf::FloatRect getGlobalBound();
+	int getGlobalRow();
+	bool Isattacking;
 	sf::Vector2f getPosition() { return body.getPosition(); };
 
 private:

@@ -1,85 +1,73 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "headers/Ennemy.h"
 #include "headers/Player.h"
 #include "headers/Sword.h"
-#include <iostream>
-void sword::Update(float deltaTime, Player player)
+bool Sword::swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enemy)
 {
-	sf::Vector2f movement(0.0f, 0.0f);
-	IsMoving = false;
 
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && row == 0)
+	if (player->Isattacking == true)
 	{
-		std::cout << "0";
-	}
+		body.setRotation(-(clockAttack.getElapsedTime() / sf::seconds(as) * 120) + angle );
+		if (clockAttack.getElapsedTime() / sf::seconds(as) > 0.2 && clockAttack.getElapsedTime() / sf::seconds(as) < 0.3 && enemy->getGlobalBound().intersects(player->getGlobalBound()))
+		{
+			if (!enemy->invicible)
+			{
+				enemy->invincibleclock.restart();
+				enemy->invicible = true;
+				//enemy->loseHealth(dmg);
+				std::cout << "al";
+                enemy->isdead = true;
+				return(enemy->isdead);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && row == 1)
+			}
+		}
+	}
+	if (clockAttack.getElapsedTime() > sf::seconds(as))
 	{
-		std::cout << "1";
+		player->Isattacking = false;
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && row == 2)
-	{
-		std::cout << "2";
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && row == 3)
-	{
-		std::cout << "3";
-	}
-
-	if (movement.x != 0 || movement.y != 0)
-		IsMoving = true;
-	else
-		IsMoving = false;
-
-
-	animation.Update(deltaTime, IsMoving, row, column);
-	body.setTextureRect(animation.uvRect);
-	body.move(movement);
-}
-
-
-void sword::Draw(sf::RenderWindow& window)
-{
-	window.draw(body);
-}
-
-void sword::ShowLifebar(int nbBar, sf::RenderWindow& window)
-{
-	float temp = nbBar / lifeMax;
-	float coef = life * temp;
-	int i = 0;
-	while (coef > 1)
-	{
-		coef--;
-
-		sf::RectangleShape rectangle;
-		rectangle.setSize(sf::Vector2f(5, 20));
-		rectangle.setFillColor(sf::Color::Red);
-		rectangle.setPosition(130 + i * 7, 5);
-		window.draw(rectangle);
-
-		i++;
-
-		std::cout << coef << std::endl;
-
-	}
-
-	sf::RectangleShape rectangle;
-	rectangle.setSize(sf::Vector2f(5, -20 * coef));
-	rectangle.setFillColor(sf::Color::Red);
-	rectangle.setPosition(130 + i * 7, 25);
-	window.draw(rectangle);
-
 
 }
-
-void sword::loseHealth(int pvLose)
+void Sword::swordPlayer(Player* player, sf::RenderWindow& window)
 {
-	life -= pvLose;
-}
+    if (player->getGlobalRow() == 1)   //  gauche
+    {
+        body.setRotation(180);
+        position.x = player->getPosition().x + 4;
+        position.y = player->getPosition().y + 5;
+    }
+    if (player->getGlobalRow() == 2)// droite
+    {
+        body.setRotation(0);
+        position.x = player->getPosition().x + 10;
+        position.y = player->getPosition().y + 10;
+    }
+    if (player->getGlobalRow() == 0)// bas
+    {
+        body.setRotation(90);
+        position.x = player->getPosition().x + 5;
+        position.y = player->getPosition().y + 10;
+    }
+    if (player->getGlobalRow() == 3)//dessus
+    {
+        body.setRotation(270);
+        position.x = player->getPosition().x + 10;
+        position.y = player->getPosition().y + 3;
+    }
 
-sf::FloatRect sword::getGlobalBound()
-{
-	return body.getGlobalBounds();
+    body.setTexture(&texture);
+    body.setSize({ 24,11 });
+    angle = body.getRotation();
+
+    body.setOrigin(0, 0);
+    body.setScale(0.7, 0.7);
+    player->Isattacking = true;
+    clockAttack.restart();
+    body.setPosition(position);
+
 }

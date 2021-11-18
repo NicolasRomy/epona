@@ -12,6 +12,7 @@ Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, 
 	this->ratio = ratio;
 	row = 0;
 	IsMoving = false;
+	Isattacking = false;
 	life = lifeMax;
 	body.setPosition(8, 8);
 	body.setTexture(*texture);
@@ -126,4 +127,9 @@ sf::FloatRect Player::getGlobalBound()
 	return body.getGlobalBounds();
 }
 
+
+int Player::getGlobalRow()
+{
+	return row;
+}
 
