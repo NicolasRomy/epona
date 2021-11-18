@@ -12,7 +12,7 @@ using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
-bool isdead = false;
+
 /*
 Dans cet example, vous allez devoir animer un personnage lors de son déplacement.
 Toujours en utilisant Sprite::setTextureRect(), vous devrez alterner entre plusieurs sous régions de la texture fournie, à une fréquence adaptée.
@@ -61,7 +61,7 @@ int main()
     int lifeEnnemy = 50;
     int spritePersoX = 16;
     int spritePersoY = 16;
-
+    bool isdead = false;
     int spritePotionX = 10;
     int spritepotionY = 10;
 
@@ -118,7 +118,7 @@ int main()
 
         player.Update(deltaTime);
         potion.Update(deltaTime, &player);
-        ennemy.Update(deltaTime, chemin, &player);
+       
 
         window.clear();
 
@@ -126,25 +126,27 @@ int main()
          if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         {
             sword.swordPlayer(&player, window);
-        }
-        
+        }     
         
         potion.Draw(window);
-        sword.swordMovement(&player, window, &ennemy);
-        isdead = sword.swordMovement(&player, window, &ennemy);
+        
         if (player.Isattacking == true) {
 
             window.draw(sword.body);
         }
-       
+
+        sword.swordMovement(&player, window, &ennemy);
+        
         player.Draw(window);
-        if (isdead == false) {
+        if (ennemy.isdead == false) {
+            ennemy.Update(deltaTime, chemin, &player);
             ennemy.Draw(window);
 
         }
        
-        player.ShowLifebar(5, window);
+        
         map2.drawmap2(window, map2);
+        player.ShowLifebar(5, window);
         window.display();
         
     }

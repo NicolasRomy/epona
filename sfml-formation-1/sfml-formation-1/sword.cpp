@@ -19,8 +19,10 @@ bool Sword::swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enem
 			{
 				enemy->invincibleclock.restart();
 				enemy->invicible = true;
-				enemy->loseHealth(dmg);
-				return(true);
+				//enemy->loseHealth(dmg);
+				std::cout << "al";
+                enemy->isdead = true;
+				return(enemy->isdead);
 
 			}
 		}
@@ -28,44 +30,44 @@ bool Sword::swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enem
 	if (clockAttack.getElapsedTime() > sf::seconds(as))
 	{
 		player->Isattacking = false;
-		return(false);
 	}
+
 }
 void Sword::swordPlayer(Player* player, sf::RenderWindow& window)
 {
-	if (player->getGlobalRow() == 1)   //  gauche   
-	{
-		body.setRotation(180);
-		position.x = player->getPosition().x +3  ; 
-		position.y = player->getPosition().y +11 ;
-	}
-	if (player->getGlobalRow() == 2)// droite
-	{
-		body.setRotation(90);
-		position.x = player->getPosition().x;
-		position.y = player->getPosition().y +12;
-	}
-	if (player->getGlobalRow() == 0)//droite
-	{
-		body.setRotation(400);
-		position.x = player->getPosition().x+8;
-		position.y = player->getPosition().y+20;
-	}
-	if (player->getGlobalRow() == 3)//dessus
-	{
-		body.setRotation(300);
-		position.x = player->getPosition().x+10;
-		position.y = player->getPosition().y+13;
-	}
+    if (player->getGlobalRow() == 1)   //  gauche
+    {
+        body.setRotation(180);
+        position.x = player->getPosition().x + 4;
+        position.y = player->getPosition().y + 5;
+    }
+    if (player->getGlobalRow() == 2)// droite
+    {
+        body.setRotation(0);
+        position.x = player->getPosition().x + 10;
+        position.y = player->getPosition().y + 10;
+    }
+    if (player->getGlobalRow() == 0)// bas
+    {
+        body.setRotation(90);
+        position.x = player->getPosition().x + 5;
+        position.y = player->getPosition().y + 10;
+    }
+    if (player->getGlobalRow() == 3)//dessus
+    {
+        body.setRotation(270);
+        position.x = player->getPosition().x + 10;
+        position.y = player->getPosition().y + 3;
+    }
 
-	body.setTexture(&texture);
-	body.setSize({ 24,11 });
-	angle = body.getRotation();
+    body.setTexture(&texture);
+    body.setSize({ 24,11 });
+    angle = body.getRotation();
 
-	body.setOrigin(0, 0);
-	body.setScale(0.7, 0.7);
-	player->Isattacking = true;
-	clockAttack.restart();
-	body.setPosition(position);
+    body.setOrigin(0, 0);
+    body.setScale(0.7, 0.7);
+    player->Isattacking = true;
+    clockAttack.restart();
+    body.setPosition(position);
 
 }

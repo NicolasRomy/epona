@@ -4,13 +4,14 @@
 Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column, int uvRectW, int uvRectH):
 	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
+
 	this->speed = speed;
 	this->column = column;
 	row = 0;
 	turn = false;
 	IsMoving = false;
 	invicible = false;
-
+	isdead = false;
 	body.setPosition(30, 0);
 	body.setTexture(*texture);
 

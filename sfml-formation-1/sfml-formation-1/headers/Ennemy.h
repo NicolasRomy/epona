@@ -19,6 +19,7 @@ public:
 	bool loseHealth(int pvLose);
 	sf::FloatRect getGlobalBound();
 
+	bool isdead;
 private:
 	float totalTime = 0.0f;
 	Animation animation;
