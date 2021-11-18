@@ -20,7 +20,6 @@ bool Sword::swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enem
 				enemy->invincibleclock.restart();
 				enemy->invicible = true;
 				//enemy->loseHealth(dmg);
-				std::cout << "al";
                 enemy->isdead = true;
 				return(enemy->isdead);
 

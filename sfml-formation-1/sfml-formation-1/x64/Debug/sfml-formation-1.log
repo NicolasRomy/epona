@@ -1,1 +1,4 @@
-﻿  sfml-formation-1.vcxproj -> C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe
+﻿  Player.cpp
+C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\sfml-formation-1\Player.cpp(16,9): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\sfml-formation-1\Player.cpp(122,9): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+  sfml-formation-1.vcxproj -> C:\Users\nromy\Documents\GitHub\epona\sfml-formation-1\x64\Debug\sfml-formation-1.exe

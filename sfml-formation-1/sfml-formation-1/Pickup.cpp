@@ -19,7 +19,7 @@ void HealthPotion::Update(float deltaTime, Player* player)
 	
 	if (body.getGlobalBounds().intersects(player->getGlobalBound())) 
 	{
-		std::cout << "ok" << std::endl;
+
 		player->maxHealth();
 		body.setPosition(-500, -500);
 	}

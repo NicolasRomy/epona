@@ -26,25 +26,25 @@ void Player::Update(float deltaTime)
 	IsMoving = false;
 
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& body.getPosition().y > -100)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& body.getPosition().y > 0)
 	{
 		movement.y += -speed * deltaTime;
 		row = 3;
 	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && body.getPosition().y < 500)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && body.getPosition().y < 17*16)
 	{
 		movement.y += speed * deltaTime;
 		row = 0;
 	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && body.getPosition().x > -100)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && body.getPosition().x > 0)
 	{
 		movement.x += -speed * deltaTime;
 		row = 1;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && body.getPosition().x < 500)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && body.getPosition().x < 23*16)
 	{
 		movement.x += speed * deltaTime;
 		row = 2;
