@@ -4,6 +4,7 @@
 #include "headers/Ennemy.h"
 #include "headers/map.h"
 #include "headers/Pickup.h"
+#include <SFML/Audio.hpp>
 #include <map>
 #include <iostream>
 #include <algorithm>
@@ -88,7 +89,10 @@ int main()
     Sword sword;
     sword.texture.loadFromFile("sword.png");
 
-
+    sf::Music music;
+    music.openFromFile("music.WAV");
+    music.play();
+    music.setLoop(true);
 
 
     while (window.isOpen())

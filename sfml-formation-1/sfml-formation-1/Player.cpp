@@ -1,6 +1,9 @@
 #include "headers/Player.h"
 #include <iostream>
 
+
+
+
 Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, float lifeMax, int uvRectW, int uvRectH, float viewheight, float viewweight, float ratio):
 	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
@@ -19,6 +22,13 @@ Player::Player(sf::Texture* texture, float SwitchTime, float speed, int column, 
 }
 
 
+sf::Vector2f normalisation(sf::Vector2f movement) {
+
+	sf::Vector2f normalisation = movement / sqrt(movement.x * movement.x + movement.y * movement.y);
+
+	return normalisation;
+
+}
 
 void Player::Update(float deltaTime)
 {
@@ -49,10 +59,12 @@ void Player::Update(float deltaTime)
 		movement.x += speed * deltaTime;
 		row = 2;
 	}
-		normalisation = movement / sqrt(movement.x * movement.x + movement.y * movement.y);	
 
 	if (movement.x != 0 || movement.y != 0)
+	{
 		IsMoving = true;
+		movement = normalisation(movement);
+	}
 	else
 		IsMoving = false;
 
@@ -60,7 +72,7 @@ void Player::Update(float deltaTime)
  	animation.Update(deltaTime, IsMoving, row, column);
 	body.setTextureRect(animation.uvRect);
 	if (isAlive == true)
-	body.move(movement);
+		body.move(movement);
 }
 
 

@@ -15,6 +15,7 @@ public:
 	int getGlobalRow();
 	bool Isattacking;
 	sf::Vector2f getPosition() { return body.getPosition(); };
+	bool IsMoving;
 
 private:
 	sf::Sprite body;
@@ -22,11 +23,9 @@ private:
 	int row;
 	float speed;
 	int column;
-	bool IsMoving;
 	float lifeMax;
 	int life;
 	int rectToDraw;
-	sf::Vector2f normalisation;
 	float viewheight;
 	float viewweight;
 	bool isAlive = true;
