@@ -1,7 +1,7 @@
 #include "headers/Ennemy.h"
 #include <iostream>
 
-Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed,float lifemax, int column, int uvRectW, int uvRectH):
+Ennemy::Ennemy(sf::Texture* texture, float SwitchTime, float speed, int column, int uvRectW, int uvRectH):
 	animation(texture, SwitchTime, uvRectW, uvRectH)
 {
 	this->speed = speed;
@@ -71,16 +71,16 @@ void Ennemy::Update(float deltaTime, std::vector<sf::Vector2f> chemin, Player* p
 		player->loseHealth(1);
 	}
 }
-void Ennemy::loseHealth(int pvLose)
+bool Ennemy::loseHealth(int pvLose)
 {
-	life -= pvLose;
+	bool isdead = true;
+	return(isdead);
 }
 
 void Ennemy::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
 }
-
 
 sf::FloatRect Ennemy::getGlobalBound()
 {

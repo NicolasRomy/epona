@@ -12,7 +12,7 @@ using namespace std;
 using namespace sf;
 typedef Vector2f vec2;
 typedef Vector2i vec2i;
-
+bool isdead = false;
 /*
 Dans cet example, vous allez devoir animer un personnage lors de son déplacement.
 Toujours en utilisant Sprite::setTextureRect(), vous devrez alterner entre plusieurs sous régions de la texture fournie, à une fréquence adaptée.
@@ -74,7 +74,7 @@ int main()
 
     Texture spriteEnnemy;
     spriteEnnemy.loadFromFile("characters.png");
-    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9,lifeEnnemy, spritePersoX, spritePersoY);
+    Ennemy ennemy(&spriteEnnemy, FrameDuration , speed, 9, spritePersoX, spritePersoY);
 
     Texture spritePotion;
     spritePotion.loadFromFile("potions.png");
@@ -128,18 +128,23 @@ int main()
             sword.swordPlayer(&player, window);
         }
         
-        player.Draw(window);
-        ennemy.Draw(window);
+        
         potion.Draw(window);
         sword.swordMovement(&player, window, &ennemy);
+        isdead = sword.swordMovement(&player, window, &ennemy);
         if (player.Isattacking == true) {
 
             window.draw(sword.body);
         }
-        map2.drawmap2(window, map2);
-
-        player.ShowLifebar(5, window);
        
+        player.Draw(window);
+        if (isdead == false) {
+            ennemy.Draw(window);
+
+        }
+       
+        player.ShowLifebar(5, window);
+        map2.drawmap2(window, map2);
         window.display();
         
     }

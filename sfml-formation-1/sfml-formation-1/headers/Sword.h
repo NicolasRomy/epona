@@ -11,7 +11,7 @@ public:
 	sf::RectangleShape body;
 	sf::Texture texture;
 	sf::Sprite sword;
-	void swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enemy);
+	bool swordMovement(Player* player, sf::RenderWindow& window, Ennemy* enemy);
 	void swordPlayer(Player* player, sf::RenderWindow& window);
 	sf::Clock clockAttack;
 	float as = 0.3f;
